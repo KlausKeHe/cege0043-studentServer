@@ -29,12 +29,16 @@ app.use(function(req,res,next){
 	//console.log('test.html requested');
 	// note that__dirname gives the path to the studentServer.js file
 	//res.sendFile(__dirname + '/test.html');
-});
+//});
 
-app.get('/:fileName',function(req,res){
+//app.get('/:fileName',function(req,res){
 	// run some server-side code
-	var fileName = req.params.fileName;
-	console.log(fileName + 'requested');
+	//var fileName = req.params.fileName;
+	//console.log(fileName + 'requested');
 	// note that __dirname gives the path to the studentServer.js file
-	res.sendFile(__dirname + '/' +fileName);
-});
+	//res.sendFile(__dirname + '/' +fileName);
+//});
+
+//serve static files - e.g. html, css
+// this should always be the last line in the server file
+app.use(express.static(__dirname));
