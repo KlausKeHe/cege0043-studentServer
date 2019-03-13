@@ -32,6 +32,12 @@ app.use(function(req,res,next){
 	next();
 });
 
+var bodyParser = require('body-parser');
+app.use(bidyParser.urlencoded({
+	extended: true
+}));
+app.use(bodyParser.json());
+
 //app.get('/test.html',function(req,res){
 	//run some server-side code
 	//console.log('test.html requested');
