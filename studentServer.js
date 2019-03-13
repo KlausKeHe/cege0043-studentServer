@@ -52,6 +52,13 @@ for (var i = 0;1<configarray.length; i++){
 
 var pool = new pg.Pool(config);
 
+app.get ('/postgistest', function (req,res){
+	pool.connect(function(err,client,done){
+		if(err){
+			console.log("not able to get connection"+err);
+			res.status(400).send(err);
+		}
+
 //app.get('/test.html',function(req,res){
 	//run some server-side code
 	//console.log('test.html requested');
