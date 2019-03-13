@@ -75,6 +75,15 @@ app.post('reflectData', function(req,res){
 	console.dir(req,body);
 });
 
+app.post('uploadData',function(req,res){
+	// note that we are using POST here as we are uploading data, so the parameters form part of the body of the request rether than the restful API
+	console.dir(req,body);
+	pool.connection(function(err,client,done){
+		if (err){
+			console.log("not able to ge connection"+err);
+			res.status(400).send(err);
+		}
+
 //app.get('/test.html',function(req,res){
 	//run some server-side code
 	//console.log('test.html requested');
