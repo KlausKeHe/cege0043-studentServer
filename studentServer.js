@@ -66,7 +66,13 @@ app.get ('/postgistest', function (req,res){
 			}
 			res.status(200).send(result.rows);
 		});
-}});
+	}});
+});
+
+app.post('reflectData', function(req,res){
+	// note that we are using POST here as we are uploading data
+	// so the parameters form part of the BODY of the request rether than the RESTful API
+	console.dir(req,body);
 });
 
 //app.get('/test.html',function(req,res){
