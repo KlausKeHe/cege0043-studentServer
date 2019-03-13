@@ -63,4 +63,12 @@ app.post('/uploadData',function(req,res){
 			console.log("not able to get connection "+ err);
 			res.status(400).send(err);
 		}
+var name = req.body.name;
+var surname = req.body.surname;
+var module = req.body.module;
+var portnum = req.body.port id;
+var language = req.body.language;
+var modulelist = req.body.modulelist;
+var lecturetime = req.body.lecturetime;
 
+var geometrystring = "st geomfromtext('POINT("+req.body.longitude + " "+ req.body.latitude + ")')";
