@@ -114,6 +114,22 @@ accessed 4th January 2018
 		//note that query needs to be a single string with no line breaks so built it up bit by bit
 var querystring = "SELECT 'FeatureCollection' As type, array_to_json(array_agg(f)) As features FROM";
 querystring = querystring + "(SELECT 'Feature' As type, ST_AsGeoJSON(lg.geom)::json As geometry,";
+querystring = querystring + "row_to_json((SELECT 1 FROM (SELECT name, surname, port_id) As 1";
+querystring = querystring + ")) As properties";
+querystring = querystring + " FROM formdata As lg where lg.port_id = '"+req.params.port_id + "' limit 100) As f ";
+console.log(querystring);
+client.query(querystring,function(err,result){
+	
+	// call done() to release the client back to the pool
+	done();
+	if (err){
+		console.log(err);
+		res.status(400).send(err);
+	}
+	res.status(200).send(result.rows);
+});
+	});
+});
 
 //app.get('/test.html',function(req,res){
 	//run some server-side code
