@@ -54,3 +54,13 @@ functionprocessData(postString){
 	client.onreadystatechange=dataUploaded;
 	client.send(postString);
 }
+
+app.post('/uploadData',function(req,res){
+	// note that we are using post here as we are uploading data, so the parameters form part of the body of teh rquest rather than the restful API
+	console.dir(req,body);
+	pool.connect(function(err,client,done){
+		if(err){
+			console.log("not able to get connection "+ err);
+			res.status(400).send(err);
+		}
+
