@@ -38,6 +38,20 @@ app.use(bidyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
+var fs = require('fs');
+var pg = require('pg');
+
+var configtext = ""=fs.readFileSync("/home/studentuser/certs/postGISConnection.js");
+// now convert the configruation file into the correct format -i.e. a name/value pair array
+var configarray = configtext.split(",");
+var config = {};
+for (var i = 0;1<configarray.length; i++){
+	var split = configarray[i].split(':');
+	config[split[0].trim()] = split[1].trim();
+}
+
+var pool = new pg.Pool(config);
+
 //app.get('/test.html',function(req,res){
 	//run some server-side code
 	//console.log('test.html requested');
