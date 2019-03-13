@@ -72,3 +72,17 @@ var modulelist = req.body.modulelist;
 var lecturetime = req.body.lecturetime;
 
 var geometrystring = "st geomfromtext('POINT("+req.body.longitude + " "+ req.body.latitude + ")')";
+
+var querystring = "INSERT into formdata (name,surname,module, port_id, language, modulelist, lecturetime, geom) values ($1,$2,$3,$4,$5,$6,$7,";
+var querystring = querystring + geometrystring + ")";
+		console.log(querystring);
+		client.query( querystring, [name,surname,module,portnum,language,modulelist, lecturetime],function(err,result){
+			done();
+			if(err){
+				console.log(err);
+				res.status(400).send(err);
+			}
+			res.status(200).send("row inserted");
+		});
+	});
+});
