@@ -83,6 +83,24 @@ app.post('uploadData',function(req,res){
 			console.log("not able to ge connection"+err);
 			res.status(400).send(err);
 		}
+	
+var name = req.body.name;
+var surname = req.body.surname;
+var module = req.body.module;
+var portnum = req.body.port_id;
+
+var querystring = "INSERT into formdata (name,surname,module,port_id) value ($1, $2, $3, $4)";
+console.log(querystring);
+client.query(querystring, [name,surname,module,portnum],function(err,result){
+	done();
+	if(err){
+		console.log(err);
+		res.status(400).send(err);
+	}
+	res.status(200).send("row inserted");
+});
+	});
+});
 
 //app.get('/test.html',function(req,res){
 	//run some server-side code
