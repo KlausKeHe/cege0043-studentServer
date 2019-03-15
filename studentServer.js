@@ -188,6 +188,10 @@ colname ";
  if(err){
  console.log(err);
  res.status(400).send(err);
+ }
+ thecolnames = result.rows[0].string_agg;
+ colnames = thecolnames;
+ console.log("the colnames "+thecolnames);
 
 //app.get('/test.html',function(req,res){
 	//run some server-side code
