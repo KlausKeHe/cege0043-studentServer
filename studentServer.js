@@ -213,6 +213,8 @@ As lg where lg.port_id = '"+req.params.portNumber + "' limit 100 ) As f ";
 As lg limit 100 ) As f ";
  }
  console.log(querystring);
+ // run the second query
+ client.query(querystring,function(err,result){
  
 //app.get('/test.html',function(req,res){
 	//run some server-side code
