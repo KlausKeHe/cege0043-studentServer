@@ -135,6 +135,12 @@ app.get('/getFormData/:port_id', function(req,res){
 	pool.connect(function(err,client,done){
 		if (err){
 			console.log("not able to get connection" + err);
+			res.status(400).send(err);
+		}
+		// use the inbuilt geoJSON functionality
+		// and create the required geoJSON format using a query adapted from here
+		// note that query needs to be a single string with no line breaks so built it up bit by bit
+var querystring = "SELECT 'FeatureCollection' As type, array_to_json(array_agg(f)) As deatures FROM";
 
 //app.get('/test.html',function(req,res){
 	//run some server-side code
