@@ -168,6 +168,11 @@ app.get('/getGeoJSON/:tablename/:geomcolumn/:portNumber?', function (req,res) {
  } 
  
  var colnames = "";
+ // first get a list of the columns that are in the table
+ // use string_agg to generate a comma separated list that can then be
+pasted into the next query
+ var tablename = req.params.tablename;
+ var geomcolumn = req.params.geomcolumn;
 
 //app.get('/test.html',function(req,res){
 	//run some server-side code
