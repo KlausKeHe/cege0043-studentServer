@@ -173,6 +173,8 @@ app.get('/getGeoJSON/:tablename/:geomcolumn/:portNumber?', function (req,res) {
 pasted into the next query
  var tablename = req.params.tablename;
  var geomcolumn = req.params.geomcolumn;
+ var querystring = "select string_agg(colname,',') from ( select
+column_name as colname ";
 
 //app.get('/test.html',function(req,res){
 	//run some server-side code
