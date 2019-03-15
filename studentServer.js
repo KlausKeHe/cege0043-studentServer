@@ -132,6 +132,9 @@ client.query(querystring,function(err,result){
 });
 
 app.get('/getFormData/:port_id', function(req,res){
+	pool.connect(function(err,client,done){
+		if (err){
+			console.log("not able to get connection" + err);
 
 //app.get('/test.html',function(req,res){
 	//run some server-side code
