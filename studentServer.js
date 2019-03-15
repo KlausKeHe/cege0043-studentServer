@@ -203,6 +203,10 @@ querystring = querystring + "(SELECT 'Feature' As type ,
 ST_AsGeoJSON(lg." + req.params.geomcolumn+")::json As geometry, ";
  querystring = querystring + "row_to_json((SELECT l FROM (SELECT
 "+colnames + ") As l )) As properties";
+// depending on whether we have a port number, do differen things
+ if (req.params.portNumber) {
+ querystring = querystring + " FROM "+req.params.tablename+"
+As lg where lg.port_id = '"+req.params.portNumber + "' limit 100 ) As f ";
  
 //app.get('/test.html',function(req,res){
 	//run some server-side code
