@@ -175,6 +175,12 @@ pasted into the next query
  var geomcolumn = req.params.geomcolumn;
  var querystring = "select string_agg(colname,',') from ( select
 column_name as colname ";
+querystring = querystring + " FROM information_schema.columns as
+colname ";
+ querystring = querystring + " where table_name =$1";
+ querystring = querystring + " and column_name <> $2 and data_type <>
+'USER-DEFINED') as cols ";
+ console.log(querystring);
 
 //app.get('/test.html',function(req,res){
 	//run some server-side code
