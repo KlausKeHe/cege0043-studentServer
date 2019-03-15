@@ -217,6 +217,9 @@ As lg limit 100 ) As f ";
  client.query(querystring,function(err,result){
 	 //call `done()` to release the client back to the pool
  done();
+ if(err){
+ console.log(err);
+ res.status(400).send(err);
  
 //app.get('/test.html',function(req,res){
 	//run some server-side code
