@@ -131,6 +131,8 @@ client.query(querystring,function(err,result){
 	});
 });
 
+app.get('/getFormData/:port_id', function(req,res){
+
 //app.get('/test.html',function(req,res){
 	//run some server-side code
 	//console.log('test.html requested');
