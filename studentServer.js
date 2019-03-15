@@ -225,6 +225,9 @@ As lg limit 100 ) As f ";
  });
 
  });
+  });
+}); 
+
  
 //app.get('/test.html',function(req,res){
 	//run some server-side code
