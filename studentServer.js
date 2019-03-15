@@ -215,6 +215,8 @@ As lg limit 100 ) As f ";
  console.log(querystring);
  // run the second query
  client.query(querystring,function(err,result){
+	 //call `done()` to release the client back to the pool
+ done();
  
 //app.get('/test.html',function(req,res){
 	//run some server-side code
