@@ -141,6 +141,7 @@ app.get('/getFormData/:port_id', function(req,res){
 		// and create the required geoJSON format using a query adapted from here
 		// note that query needs to be a single string with no line breaks so built it up bit by bit
 var querystring = "SELECT 'FeatureCollection' As type, array_to_json(array_agg(f)) As deatures FROM";
+querystring = querystring + "(SELECT 'Feature' As type ,ST_AsGeoJSON(lg.geom)::json As geometry, ";
 
 //app.get('/test.html',function(req,res){
 	//run some server-side code
