@@ -154,6 +154,11 @@ surname, port_id) As l ";
  if(err){
  console.log(err);
  res.status(400).send(err);
+ }
+ res.status(200).send(result.rows);
+ });
+ });
+});
 
 //app.get('/test.html',function(req,res){
 	//run some server-side code
