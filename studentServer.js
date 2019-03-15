@@ -166,6 +166,8 @@ app.get('/getGeoJSON/:tablename/:geomcolumn/:portNumber?', function (req,res) {
  console.log("not able to get connection "+ err);
  res.status(400).send(err);
  } 
+ 
+ var colnames = "";
 
 //app.get('/test.html',function(req,res){
 	//run some server-side code
