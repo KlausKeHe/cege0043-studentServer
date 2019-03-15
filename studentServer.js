@@ -192,6 +192,10 @@ colname ";
  thecolnames = result.rows[0].string_agg;
  colnames = thecolnames;
  console.log("the colnames "+thecolnames);
+ // now use the inbuilt geoJSON functionality
+ // and create the required geoJSON format using a query adapted fromhere:
+ // http://www.postgresonline.com/journal/archives/267-CreatingGeoJSON-Feature-Collections-with-JSON-and-PostGIS-functions.html,accessed 4thJanuary 2018
+ // note that query needs to be a single string with no line breaks sobuilt it up bit by bit
 
 //app.get('/test.html',function(req,res){
 	//run some server-side code
