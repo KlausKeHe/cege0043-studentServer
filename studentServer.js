@@ -181,6 +181,8 @@ colname ";
  querystring = querystring + " and column_name <> $2 and data_type <>
 'USER-DEFINED') as cols ";
  console.log(querystring);
+// now run the query
+ client.query(querystring,[tablename,geomcolumn], function(err,result){
 
 //app.get('/test.html',function(req,res){
 	//run some server-side code
